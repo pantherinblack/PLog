@@ -14,9 +14,9 @@ public class PLog {
 
     public PLog(String docName){
         this.docName = docName;
-        if (new File(("C:\\Users\\Kevin\\OneDrive - Bildungszentrum Zürichsee\\Desktop\\BZZ\\Workspace\\PLog\\PLog\\"+docName)).exists()){
+        if (new File((new File("").getAbsolutePath()+"\\Plog\\"+docName)).exists()){
             try {
-                reader = new BufferedReader(new FileReader(("C:\\Users\\Kevin\\OneDrive - Bildungszentrum Zürichsee\\Desktop\\BZZ\\Workspace\\PLog\\PLog\\"+docName)));
+                reader = new BufferedReader(new FileReader((new File("").getAbsolutePath()+"\\PLog\\"+docName)));
                 readFile();
             } catch (FileNotFoundException e) {
                 System.out.println("File could not be read");
@@ -55,7 +55,7 @@ public class PLog {
     public void storeFile(){
         if (text!=null && text!="") {
             try {
-                writer = new FileWriter(("C:\\Users\\Kevin\\OneDrive - Bildungszentrum Zürichsee\\Desktop\\BZZ\\Workspace\\PLog\\PLog\\" + docName), false);
+                writer = new FileWriter((new File("").getAbsolutePath()+"\\PLog\\" + docName), false);
                 writer.write(date.getDayOfMonth() + "." + date.getMonthValue() + "." + date.getYear() + "\n" + text);
                 writer.flush();
                 writer.close();
